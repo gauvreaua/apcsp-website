@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for rpi in rpitest rpi01 rpi02 rpi03 rpi04 rpi05 rpi06 rpi07 rpi08 rpi09 rpi10 rpi11 $
+do
+        ping -q -c 1 "$rpi" &> /dev/null
+        if [ "$?" -eq 0 ]
+         then
+          echo "$rpi : alive"
+         else
+          echo "$rpi : not alive"
+        fi
+done
